@@ -9,7 +9,7 @@
 
 -   Free software: MIT License
 -   Documentation: <https://amccorketutoring.github.io/lsttrends>
-    
+
 
 ## Features
 
