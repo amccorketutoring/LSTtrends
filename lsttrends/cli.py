@@ -5,10 +5,17 @@ import pandas as pd
 from pathlib import Path
 from .summer_trend import compute_summer_lst_trend
 
+
 def main():
     parser = argparse.ArgumentParser(description="Analyze LST summer trends.")
-    parser.add_argument("csv_path", nargs="?", help="Path to CSV file with 'year' and 'lst' columns.")
-    parser.add_argument("--check", action="store_true", help="Run a sample sanity check using built-in data.")
+    parser.add_argument(
+        "csv_path", nargs="?", help="Path to CSV file with 'year' and 'lst' columns."
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Run a sample sanity check using built-in data.",
+    )
 
     args = parser.parse_args()
 
@@ -38,6 +45,7 @@ def main():
         print(f"📈 LST Summer Trend: {trend:.2f} °C per decade")
     except Exception as e:
         print(f"❌ Error processing file: {e}")
+
 
 # ✅ Ensure main() runs when using: python -m lsttrends.cli
 if __name__ == "__main__":

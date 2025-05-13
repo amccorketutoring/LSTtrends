@@ -2,7 +2,7 @@ site_name: lsttrends
 site_description: Analyze summer Land Surface Temperature trends from satellite imagery
 site_author: amccorketutoring
 site_url: https://amccorketutoring.github.io/lsttrends
-repo_url: https://github.com/amccorketutoring/lsttrends 
+repo_url: https://github.com/amccorketutoring/lsttrends
 
 copyright: "Copyright &copy; 2024 - 2024 Alex McCorkel"
 

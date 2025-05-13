@@ -12,7 +12,7 @@ import pytest
 import pandas as pd
 
 # Import the module you want to test
-import lsttrends.summer_trend as summer_trend  
+import lsttrends.summer_trend as summer_trend
 
 
 def test_compute_summer_lst_trend():
@@ -21,10 +21,9 @@ def test_compute_summer_lst_trend():
     when given increasing LST values.
     """
     # Simulated LST trend data
-    df = pd.DataFrame({
-        "year": [2000, 2005, 2010, 2015, 2020],
-        "lst": [30.2, 31.0, 32.1, 32.8, 34.0]
-    })
+    df = pd.DataFrame(
+        {"year": [2000, 2005, 2010, 2015, 2020], "lst": [30.2, 31.0, 32.1, 32.8, 34.0]}
+    )
 
     trend = summer_trend.compute_summer_lst_trend(df)
 
@@ -32,11 +31,11 @@ def test_compute_summer_lst_trend():
     assert isinstance(trend, float)
     assert round(trend, 1) > 0  # Expect increasing trend
 
+
 def test_zero_or_negative_trend():
-    df = pd.DataFrame({
-        "year": [2000, 2005, 2010, 2015, 2020],
-        "lst": [34.0, 33.8, 33.0, 32.8, 32.0]
-    })
+    df = pd.DataFrame(
+        {"year": [2000, 2005, 2010, 2015, 2020], "lst": [34.0, 33.8, 33.0, 32.8, 32.0]}
+    )
     trend = summer_trend.compute_summer_lst_trend(df)
     assert isinstance(trend, float)
     assert round(trend, 1) <= 0  # Expect decreasing or flat trend

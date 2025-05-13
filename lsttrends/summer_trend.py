@@ -36,7 +36,9 @@ def compute_summer_lst_trend(df: pd.DataFrame, year_col="year", lst_col="lst") -
         float: Slope (°C/year) of the trend.
     """
     if year_col not in df.columns or lst_col not in df.columns:
-        raise ValueError(f"Columns '{year_col}' and/or '{lst_col}' not found in DataFrame.")
+        raise ValueError(
+            f"Columns '{year_col}' and/or '{lst_col}' not found in DataFrame."
+        )
 
     x = df[year_col].to_numpy()
     y = df[lst_col].to_numpy()
@@ -66,8 +68,8 @@ def plot_trend(df: pd.DataFrame, year_col="year", lst_col="lst", title="LST Tren
     trend_line = slope * x + intercept
 
     plt.figure(figsize=(8, 5))
-    plt.plot(x, y, 'o', label='Observed LST')
-    plt.plot(x, trend_line, '-', color='red', label=f'Trend: {slope:.2f} °C/year')
+    plt.plot(x, y, "o", label="Observed LST")
+    plt.plot(x, trend_line, "-", color="red", label=f"Trend: {slope:.2f} °C/year")
     plt.xlabel("Year")
     plt.ylabel("LST (°C)")
     plt.title(title)
