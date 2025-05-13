@@ -1,4 +1,3 @@
-pandas>=1.3
 black
 black[jupyter]
 build
@@ -20,6 +19,7 @@ mkdocstrings-crystal
 mkdocstrings-python-legacy
 nbconvert
 nbformat
+pandas>=1.3
 pygments
 pymdown-extensions
 pytest
