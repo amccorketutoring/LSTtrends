@@ -105,3 +105,10 @@ ENV/
 
 # IDE settings
 .vscode/
+
+# Large or local data files
+data/KnoxCounty_Buildings.geojson
+data/tl_2023_47093_roads.shp
+data/tl_2023_47093_roads.dbf
+docs/lab_09_folium_map.html
+docs/image.png
