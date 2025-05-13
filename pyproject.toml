@@ -1,42 +1,36 @@
 [project]
 name = "lsttrends"
 version = "0.0.1"
-dynamic = [
-    "dependencies",
-]
 description = "Analyze summer Land Surface Temperature trends from satellite imagery"
 readme = "README.md"
 requires-python = ">=3.8"
-keywords = [
-    "lsttrends",
-]
-license = {text = "MIT License"}
+keywords = ["lsttrends", "LST", "remote sensing", "climate", "urban heat island"]
+license = "MIT"  # SPDX identifier is correct
+
 authors = [
   {name = "Alex McCorkel", email = "amccorketutoring@gmail.com"},
 ]
+
 classifiers = [
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers", 
     "Natural Language :: English",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Atmospheric Science"
 ]
+
 
 [project.entry-points."console_scripts"]
 lsttrends = "lsttrends.cli:main"
 
 [project.optional-dependencies]
 all = [
-    "lsttrends[extra]",
-]
-
-extra = [
     "pandas",
 ]
-
 
 [tool]
 [tool.setuptools.packages.find]
@@ -46,10 +40,8 @@ exclude = ["docs*"]
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
-
 [tool.distutils.bdist_wheel]
 universal = true
-
 
 [tool.bumpversion]
 current_version = "0.0.1"
@@ -66,16 +58,17 @@ filename = "lsttrends/__init__.py"
 search = '__version__ = "{current_version}"'
 replace = '__version__ = "{new_version}"'
 
-
 [tool.flake8]
-exclude = [
-    "docs",
-]
+exclude = ["docs"]
 max-line-length = 88
-
 
 [project.urls]
 Homepage = "https://github.com/amccorketutoring/lsttrends"
+Documentation = "https://amccorketutoring.github.io/lsttrends/"
+Source = "https://github.com/amccorketutoring/lsttrends"
+Issues = "https://github.com/amccorketutoring/lsttrends/issues"
+
+Examples = "https://amccorketutoring.github.io/lsttrends/examples/"
 
 [build-system]
 requires = ["setuptools>=64", "setuptools_scm>=8"]
