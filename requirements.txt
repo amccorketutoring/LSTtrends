@@ -1,4 +1,5 @@
 geopandas
+matplotlib
 numpy
 pandas>=1.3
 
