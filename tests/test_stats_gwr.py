@@ -1,17 +1,18 @@
+import unittest
 from pathlib import Path
 from lsttrends.analysis import stats_gwr
 
-# Define path to save the plot
 HERE = Path(__file__).resolve().parent
-OUTPUT_DIR = HERE.parent / "outputs"
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-output_path = OUTPUT_DIR / "GWR_Local_R2_Test.png"
+DATA_DIR = HERE.parent / "data"
+csv_path = DATA_DIR / "Knox_UHI_Zonal_Stats_STRM.csv"
+required_exists = csv_path.exists()
 
-# Run the GWR model
-print("Running Geographically Weighted Regression (GWR)...")
-results = stats_gwr.run_gwr_model(save_plot=True, output_path=output_path)
+@unittest.skipUnless(required_exists, "Required data file not found.")
+class TestGWR(unittest.TestCase):
+    def test_run_gwr_model(self):
+        output_path = HERE.parent / "outputs" / "GWR_Local_R2_Test.png"
+        results = stats_gwr.run_gwr_model(save_plot=True, output_path=output_path)
+        self.assertTrue(hasattr(results, "localR2"))
 
-# Print summary
-print("\n✅ GWR model run successfully.\n")
-print(results.summary())
-print(f"\n🖼️  Local R² map saved to: {output_path}")
+if __name__ == "__main__":
+    unittest.main()
