@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-
 """Tests for `lsttrends` package."""
-
 
 import unittest
 

@@ -7,7 +7,6 @@ from lsttrends.analysis import stats_ols
 class TestOLSRegression(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        # Keep Path object for checking file existence
         cls.csv_path_obj = (
             Path(__file__).resolve().parent.parent
             / "data"
@@ -20,7 +19,7 @@ class TestOLSRegression(unittest.TestCase):
         cls.predictors = ["NDVI", "BuildingDensity", "Slope", "Aspect"]
 
     @unittest.skipUnless(
-        required_exists := (
+        (
             Path(__file__).resolve().parent.parent
             / "data"
             / "Knox_UHI_Zonal_Stats_STRM.csv"
@@ -35,7 +34,7 @@ class TestOLSRegression(unittest.TestCase):
         self.assertTrue(hasattr(results, "summary"))
 
     @unittest.skipUnless(
-        required_exists := (
+        (
             Path(__file__).resolve().parent.parent
             / "data"
             / "Knox_UHI_Zonal_Stats_STRM.csv"
