@@ -1,75 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "lsttrends"
-version = "0.0.1"
-description = "Analyze summer Land Surface Temperature trends from satellite imagery"
-readme = "README.md"
+dynamic = ["version"]
+description = "Analyze long-term land surface temperature (LST) trends, urban morphology, and heat vulnerability using Google Earth Engine (GEE), statistical analysis, spatial clustering, and visualization."
+readme = { file = "README.md", content-type = "text/markdown; charset=UTF-8" }
 requires-python = ">=3.8"
-keywords = ["lsttrends", "LST", "remote sensing", "climate", "urban heat island"]
-license = "MIT"  # SPDX identifier is correct
-
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
-  {name = "Alex McCorkel", email = "amccorketutoring@gmail.com"},
+    { name = "Alex McCorkel", email = "amccorketutoring@gmail.com" }
 ]
-
+keywords = [
+    "LST", "urban heat island", "remote sensing", "Google Earth Engine",
+    "geospatial analysis", "urban morphology", "heat vulnerability"
+]
 classifiers = [
-    "Intended Audience :: Developers",
-    "Natural Language :: English",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: GIS",
-    "Topic :: Scientific/Engineering :: Atmospheric Science"
+    "Operating System :: OS Independent",
+    "Framework :: Jupyter"
 ]
-
-
-[project.entry-points."console_scripts"]
-lsttrends = "lsttrends.cli:main"
+dependencies = [
+    "numpy>=1.18",
+    "pandas>=1.3",
+    "scikit-learn>=1.0",
+    "statsmodels>=0.13",
+    "matplotlib>=3.4",
+    "seaborn>=0.11",
+    "geopandas>=0.10",
+    "rtree>=0.9",
+    "mgwr>=2.2",
+    "jupyterlab>=3.0",
+    "ipykernel>=6.0",
+    "earthengine-api>=0.1.0"
+]
 
 [project.optional-dependencies]
-all = [
-    "pandas",
+viz = ["matplotlib>=3.4", "seaborn>=0.11"]
+spatial = ["geopandas>=0.10", "rtree>=0.9", "mgwr>=2.2"]
+jupyter = ["jupyterlab>=3.0", "ipykernel>=6.0"]
+gee = ["earthengine-api>=0.1.0"]
+full = [
+    "matplotlib>=3.4",
+    "seaborn>=0.11",
+    "geopandas>=0.10",
+    "rtree>=0.9",
+    "mgwr>=2.2",
+    "jupyterlab>=3.0",
+    "ipykernel>=6.0",
+    "earthengine-api>=0.1.0"
 ]
 
-[tool]
+[project.scripts]
+lsttrends = "lsttrends.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.packages.find]
-include = ["lsttrends*"]
-exclude = ["docs*"]
+where = ["."]
+include = ["lsttrends", "lsttrends.*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+"lsttrends.gee" = ["*.js"]
+"lsttrends" = ["assets/logo.png"]
 
 [tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
-
-[tool.distutils.bdist_wheel]
-universal = true
-
-[tool.bumpversion]
-current_version = "0.0.1"
-commit = true
-tag = true
-
-[[tool.bumpversion.files]]
-filename = "pyproject.toml"
-search = 'version = "{current_version}"'
-replace = 'version = "{new_version}"'
-
-[[tool.bumpversion.files]]
-filename = "lsttrends/__init__.py"
-search = '__version__ = "{current_version}"'
-replace = '__version__ = "{new_version}"'
-
-[tool.flake8]
-exclude = ["docs"]
-max-line-length = 88
-
-[project.urls]
-Homepage = "https://github.com/amccorketutoring/lsttrends"
-Documentation = "https://amccorketutoring.github.io/lsttrends/"
-Source = "https://github.com/amccorketutoring/lsttrends"
-Issues = "https://github.com/amccorketutoring/lsttrends/issues"
-
-Examples = "https://amccorketutoring.github.io/lsttrends/examples/"
-
-[build-system]
-requires = ["setuptools>=64", "setuptools_scm>=8"]
-build-backend = "setuptools.build_meta"
+version = { attr = "lsttrends.__version__" }

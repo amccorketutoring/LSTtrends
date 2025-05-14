@@ -1,5 +1,13 @@
-geopandas
-matplotlib
-numpy
+earthengine-api>=0.
+geopandas>=0.10
+ipykernel>=6.0
+jupyterlab>=3.0
+matplotlib>=3.4
+mgwr>=2.2
+numpy>=1.18
 pandas>=1.3
+rtree>=0.9
+scikit-learn>=1.0
+seaborn>=0.11
+statsmodels>=0.13
 

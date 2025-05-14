@@ -1,7 +1,39 @@
+# Core project metadata
 include LICENSE
 include README.md
 include requirements.txt
+include pyproject.toml
 
-recursive-exclude * __pycache__
-recursive-exclude * *.py[co]
+# Include all Python source files in the package
+recursive-include lsttrends *.py
 
+# Include GEE JavaScript scripts (if any)
+recursive-include lsttrends *.js
+
+# Include project assets (e.g., logo)
+recursive-include lsttrends/assets *.png
+
+# Include sample data files (if relevant to examples or tests)
+recursive-include data *.csv
+recursive-include data *.tif
+recursive-include data *.geojson
+recursive-include data *.shp
+recursive-include data *.dbf
+
+# Include test scripts
+recursive-include tests *.py
+
+# Include example markdown or notebooks
+recursive-include examples *.md
+recursive-include examples *.ipynb
+
+# Include documentation markdown and image assets
+recursive-include docs *.md
+recursive-include docs/assets *.png
+
+# Clean up unnecessary files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.ipynb_checkpoints

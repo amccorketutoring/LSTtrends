@@ -1,76 +1,4 @@
 site_name: lsttrends
-site_description: Analyze summer Land Surface Temperature trends from satellite imagery
-site_author: amccorketutoring
-site_url: https://amccorketutoring.github.io/lsttrends
-repo_url: https://github.com/amccorketutoring/lsttrends
-
-copyright: "Copyright &copy; 2024 - 2024 Alex McCorkel"
-
-theme:
-    palette:
-        - scheme: default
-          #   primary: blue
-          #   accent: indigo
-          toggle:
-              icon: material/toggle-switch-off-outline
-              name: Switch to dark mode
-        - scheme: slate
-          primary: indigo
-          accent: indigo
-          toggle:
-              icon: material/toggle-switch
-              name: Switch to light mode
-    name: material
-    icon:
-        repo: fontawesome/brands/github
-    # logo: assets/logo.png
-    # favicon: assets/favicon.png
-    features:
-        - navigation.instant
-        - navigation.tracking
-        - navigation.top
-        - search.highlight
-        - search.share
-    custom_dir: "docs/overrides"
-    font:
-        text: Google Sans
-        code: Regular
-
-plugins:
-    - search
-    - mkdocstrings
-    - git-revision-date
-    - git-revision-date-localized:
-          enable_creation_date: true
-          type: timeago
-    # - pdf-export
-    - mkdocs-jupyter:
-          include_source: True
-          ignore_h1_titles: True
-          execute: True
-          allow_errors: false
-          ignore: ["conf.py"]
-          execute_ignore: ["*ignore.ipynb"]
-
-markdown_extensions:
-    - admonition
-    - abbr
-    - attr_list
-    - def_list
-    - footnotes
-    - meta
-    - md_in_html
-    - pymdownx.superfences
-    - pymdownx.highlight:
-          linenums: true
-    - toc:
-          permalink: true
-
-# extra:
-#     analytics:
-#         provider: google
-#         property: UA-XXXXXXXXX-X
-
 nav:
   - Home: index.md
   - Installation: installation.md
@@ -80,7 +8,23 @@ nav:
   - Changelog: changelog.md
   - Report Issues: https://github.com/amccorketutoring/lsttrends/issues
   - Examples:
-      - examples/intro.ipynb
+      - Preprocessing: examples/preprocessing.md
+      - OLS Regression: examples/stats_ols.md
+      - GWR Analysis: examples/stats_gwr.md
+      - Moran's I: examples/spatial_analysis.md
+      - Change Detection: examples/change_detection.md
+      - Clustering Radar Chart: examples/clustering.md
+      - UHI Vulnerability: examples/uhi_vulnerability.md
+      - GEE Data Prep: examples/gee.md
+      - GEE Integration: examples/gee_integration.md
+  - Modules:
+      - Preprocessing: modules/preprocessing.md
+      - Change Detection: modules/change_detection.md
+      - OLS Regression: modules/stats_ols.md
+      - GWR Analysis: modules/stats_gwr.md
+      - Spatial Autocorrelation: modules/spatial_analysis.md
+      - Clustering & Radar Chart: modules/clustering.md
+      - Vulnerability Index: modules/uhi_vulnerability.md
   - API Reference:
       - lsttrends module: lsttrends.md
       - common module: common.md

@@ -9,13 +9,17 @@ repos:
       - id: trailing-whitespace
       - id: requirements-txt-fixer
       - id: check-added-large-files
-        args: ["--maxkb=500"]
-        exclude: |
+        args: ["--maxkb=1200"]
+        exclude: >
           (^data/KnoxCounty_Buildings\.geojson$|
            ^data/tl_2023_47093_roads\.shp$|
            ^data/tl_2023_47093_roads\.dbf$|
-           ^docs/lab_09_folium_map\.html$|
-           ^docs/image\.png$)
+           ^data/Built_Surface_1990\.tif$|
+           ^data/Built_Surface_2020\.tif$|
+           ^outputs/OLS_Regression_Residuals_vs_Fitted_Values\.png$|
+           ^outputs/Built_Surface_Change_1990_to_2020\.png$|
+           ^outputs/Built_Surface_Change_1990_to_2020_test\.png$|
+           ^outputs/GWR_Local_R2_Test\.png$)
 
   - repo: https://github.com/psf/black
     rev: 25.1.0

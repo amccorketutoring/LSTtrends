@@ -1,6 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-private/
 *.py[cod]
 *$py.class
 
@@ -14,7 +13,6 @@ build/
 develop-eggs/
 dist/
 downloads/
-private/
 eggs/
 .eggs/
 lib/
@@ -28,8 +26,6 @@ wheels/
 *.egg
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -53,15 +49,15 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 *.log
 local_settings.py
 
-# Flask stuff:
+# Flask stuff
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy stuff
 .scrapy
 
 # Sphinx documentation
@@ -112,3 +108,10 @@ data/tl_2023_47093_roads.shp
 data/tl_2023_47093_roads.dbf
 docs/lab_09_folium_map.html
 docs/image.png
+
+# Compressed archives
+*.zip
+
+# Large data/output files
+data/*.tif
+outputs/*.png
