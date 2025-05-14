@@ -9,7 +9,10 @@ from lsttrends.analysis import spatial_analysis
 HERE = Path(__file__).resolve().parent
 DATA_PATH = HERE.parent / "data" / "Knox_UHI_Zonal_Stats_STRM.csv"
 
-@unittest.skipUnless(DATA_PATH.exists(), "Required CSV file not found for spatial analysis test.")
+
+@unittest.skipUnless(
+    DATA_PATH.exists(), "Required CSV file not found for spatial analysis test."
+)
 def test_spatial_analysis():
     # Convert to GeoDataFrame with Point geometries
     df = pd.read_csv(DATA_PATH)

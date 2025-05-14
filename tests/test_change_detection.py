@@ -11,6 +11,7 @@ INPUT_1990 = DATA_DIR / "Built_Surface_1990.tif"
 INPUT_2020 = DATA_DIR / "Built_Surface_2020.tif"
 raster_exists = INPUT_1990.exists() and INPUT_2020.exists()
 
+
 @unittest.skipUnless(raster_exists, "Built-up raster files are missing")
 class TestChangeDetection(unittest.TestCase):
     def test_run_change_detection(self):
