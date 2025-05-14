@@ -1,31 +1,31 @@
+Cython>=0.29
+
+# Google Earth Engine API
+earthengine-api>=0.1.0
+
+# Spatial statistics
+esda>=2.4
+
+# Geospatial libraries
+geopandas>=0.10
+ipykernel>=6.0
+
+# Notebook support
+jupyterlab>=3.0
+libpysal>=4.4
+
+# Visualization
+matplotlib>=3.4
+mgwr>=2.2
 
 
 # Core scientific stack
 numpy>=1.18
-Cython>=0.29
 pandas>=1.3
-scikit-learn>=1.0
-statsmodels>=0.13
-
-# Geospatial libraries
-geopandas>=0.10
-rtree>=0.9
 rasterio>=1.2
-
-# Spatial statistics
-esda>=2.4
-libpysal>=4.4
-mgwr>=2.2
-
-# Visualization
-matplotlib>=3.4
+rtree>=0.9
+scikit-learn>=1.0
 seaborn>=0.11
-
-# Notebook support
-jupyterlab>=3.0
-ipykernel>=6.0
-
-# Google Earth Engine API
-earthengine-api>=0.1.0
+statsmodels>=0.13
 
 
