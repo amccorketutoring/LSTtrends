@@ -9,7 +9,7 @@ repos:
       - id: trailing-whitespace
       - id: requirements-txt-fixer
       - id: check-added-large-files
-        args: ["--maxkb=1200"]
+        args: ["--maxkb=1500"]
         exclude: >
           (^data/KnoxCounty_Buildings\.geojson$|
            ^data/tl_2023_47093_roads\.shp$|
